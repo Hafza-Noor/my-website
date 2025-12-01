@@ -126,39 +126,42 @@ section.visible {
   max-width: 900px;
   margin: auto;
   line-height: 1.6;
+  .about-section {
+  margin-bottom: 50px;
 }
 
-/* SKILLS SECTION */
-.skill-box {
-  margin-bottom: 25px;
+.about-section .btn {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .skill-box p {
-  margin-bottom: 10px;
-  font-size: 18px;
-  color: #fff;
+  margin-bottom: 6px;
+  font-weight: 600;
 }
 
+/* skill bar width aur height ko adjust kar sakti ho */
 .skill-bar {
-  width: 100%;
+  background-color: #444;
   height: 10px;
-  background: #333;
   border-radius: 5px;
-  overflow: hidden;
 }
 
 .skill-bar span {
   display: block;
   height: 100%;
-  background: #ff4b4b;
-  width: 0;
-  animation: fillBar 2s forwards;
+  background-color: #ff4c4c; /* red-ish */
+  border-radius: 5px;
 }
 
-@keyframes fillBar {
-  from { width: 0; }
-  to { width: var(--skill-level); }
-}
 
 /* PROJECTS SECTION */
 .projects-container {
@@ -210,11 +213,10 @@ section.visible {
   margin-bottom: 15px;
 }
 
-/* TIMELINE SECTION */
 .timeline {
   position: relative;
   margin: 40px auto;
-  padding-left: 40px;
+  padding-left: 60px; /* <-- old 40px se badhaya */
   border-left: 2px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -229,19 +231,12 @@ section.visible {
   background: #ff4b4b;
   border-radius: 50%;
   position: absolute;
-  left: -7px;
+  left: -9px;  /* <-- old -7px se thoda left shift kiya */
   top: 5px;
 }
 
-.timeline-content h3 {
-  font-size: 22px;
-  margin-bottom: 5px;
-  color: #ff4b4b;
-}
-
-.timeline-date {
-  font-size: 14px;
-  opacity: 0.8;
+.timeline-content {
+  margin-left: 20px; /* <-- extra spacing taake dot overlap na kare */
 }
 
 /* SERVICES SECTION */
@@ -456,4 +451,168 @@ section.visible {
     padding: 10px 20px;
   }
 
+}
+#about h2 {
+  margin-bottom: 20px !important;
+}
+
+#about p {
+  margin-bottom: 25px !important;
+}
+
+#about .btn {
+  margin-top: 25px !important;
+  display: inline-block !important;
+}
+/* ABOUT SECTION */
+.about-section {
+  padding: 80px 50px;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  max-width: 1000px;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.about-image img {
+  width: 300px;
+  border-radius: 15px;
+  border: 3px solid #ff4b4b;
+  object-fit: cover;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-content h2 {
+  font-size: 36px;
+  color: #ff4b4b;
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.about-content .btn {
+  padding: 12px 30px;
+  background: #ff4b4b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.about-content .btn:hover {
+  background: #e33b3b;
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image img {
+    width: 200px;
+    margin-bottom: 20px;
+  }
+}
+.about-section {
+  padding: 60px 20px;
+  text-align: center;
+  /* background-color: transparent; */ /* ya is line ko hata do */
+}
+.about-section {
+  padding: 80px 20px 40px; /* top padding thoda zyada, bottom thoda kam */
+  text-align: center;
+  /* background-color: transparent; */ 
+}
+
+.download-btn {
+  display: inline-block;
+  margin-top: 20px; /* button ke upar space */
+  padding: 12px 25px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #0056b3;
+}
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  /* background: #f5f5f5;  <-- remove this line ya apni pehli color value */
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: bold;
+  color: inherit; /* ya pehle jo color tha #333 replace na kare */
+}
+
+.typing-text {
+  font-size: 32px;
+  font-weight: 500;
+  color: inherit; /* default text color use ho */
+  margin-top: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid currentColor; /* blinking cursor ka color match ho jaye */
+}
+
+
+.hero-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: white;
+
+  /* Background image */
+  background: url('assets/555.jpg') center/cover no-repeat;
+  background-attachment: fixed; /* thoda parallax feel */
+}
+
+/* Optional: overlay for text visibility */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9); /* halki dark layer */
+  z-index: 0;
+}
+
+.hero-section h1,
+.hero-section h2,
+.hero-section p,
+.hero-section .btn {
+  position: relative;
+  z-index: 1; /* overlay ke upar text */
 }

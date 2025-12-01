@@ -273,3 +273,44 @@ contactForm.addEventListener("submit", function(e) {
     alert("Error submitting the form: " + error);
   });
 });
+function typeWriterHero(texts, elementId, speed = 100, pause = 1500) {
+  let i = 0;
+  let j = 0;
+  let forward = true;
+  const el = document.getElementById(elementId);
+
+  function type() {
+    if (forward) {
+      el.textContent = texts[i].substring(0, j + 1);
+      j++;
+      if (j === texts[i].length) {
+        forward = false;
+        setTimeout(type, pause);
+        return;
+      }
+    } else {
+      j--;
+      el.textContent = texts[i].substring(0, j);
+      if (j === 0) {
+        forward = true;
+        i = (i + 1) % texts.length;
+      }
+    }
+    setTimeout(type, speed);
+  }
+
+  type();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  typeWriterHero(["Hafza Noor", "a Freelancer"], "typed", 100, 1500);
+});
+const typed = new Typed('#typed', {
+  strings: ['Hafza Noor', 'a Freelancer'],
+  typeSpeed: 50,
+  backSpeed: 30,
+  backDelay: 1500,
+  loop: true,
+  showCursor: true,
+  cursorChar: '|',
+});
